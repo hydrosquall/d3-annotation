@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-selection'), require('d3-drag'), require('d3-shape'), require('d3-dispatch')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'd3-selection', 'd3-drag', 'd3-shape', 'd3-dispatch'], factory) :
-	(factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3));
-}(this, (function (exports,d3Selection,d3Drag,d3Shape,d3Dispatch) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('d3-selection'), require('d3-drag'), require('d3-shape'), require('copy-to-clipboard'), require('d3-dispatch')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'd3-selection', 'd3-drag', 'd3-shape', 'copy-to-clipboard', 'd3-dispatch'], factory) :
+	(factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.copy,global.d3));
+}(this, (function (exports,d3Selection,d3Drag,d3Shape,copyToClipboard,d3Dispatch) { 'use strict';
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -1920,7 +1920,7 @@ function annotation() {
     /* eslint-disable no-console */
     console.log("Annotations JSON was copied to your clipboard. Please note the annotation type is not JSON compatible. It appears in the objects array in the console, but not in the copied JSON.", collection.json);
     /* eslint-enable no-console */
-    window.copy(JSON.stringify(collection.json.map(function (a) {
+    copyToClipboard.copy(JSON.stringify(collection.json.map(function (a) {
       delete a.type;
       return a;
     })));

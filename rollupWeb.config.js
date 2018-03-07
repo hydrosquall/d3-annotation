@@ -8,7 +8,7 @@ export default {
   plugins: [
     babel(babelrc())
   ],
-  external:['d3-selection', 'd3-dispatch', 'd3-shape', 'd3-drag'],
+  external:['d3-selection', 'd3-dispatch', 'd3-shape', 'd3-drag', 'copy-to-clipboard'],
   targets: [
     {
       dest: pkg.web,
@@ -19,7 +19,8 @@ export default {
         'd3-selection': 'd3',
         'd3-dispatch': 'd3',
         'd3-shape': 'd3',
-        'd3-drag': 'd3'
+        'd3-drag': 'd3',
+        'copy-to-clipboard': 'copy'
       }
     }
   ]
