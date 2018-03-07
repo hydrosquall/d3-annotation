@@ -1,6 +1,7 @@
 import Annotation from "./Annotation"
 import AnnotationCollection from "./AnnotationCollection"
 import { newWithClass, d3Callout } from "./Types-d3"
+import clipboardCopy from "clipboard-copy"
 import { select } from "d3-selection"
 import { dispatch } from "d3-dispatch"
 
@@ -103,7 +104,7 @@ export default function annotation() {
       collection.json
     )
     /* eslint-enable no-console */
-    window.copy(
+    clipboardCopy(
       JSON.stringify(
         collection.json.map(a => {
           delete a.type
